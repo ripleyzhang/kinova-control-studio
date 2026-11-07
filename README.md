@@ -1,8 +1,8 @@
 # Kinova Control Studio
 
-SIX AXIS RUSH — Level 2: THE EMPTY UNIVERSE.
+SIX AXIS RUSH — Level 4: THE AWAKENING.
 
-Frontend-only V1 foundation for the Kinova Gen3 Lite. The landing page includes an interactive empty 3D workspace. No robot model, joint controls, physics, backend, or hardware control is implemented.
+Frontend-only V1 foundation for the Kinova Gen3 Lite. The landing page includes an interactive 3D workspace with the official Kinova Gen3 Lite in its zero arm pose. No joint controls, animation, physics, backend, or hardware control is implemented.
 
 ## Structure
 
@@ -10,6 +10,7 @@ Frontend-only V1 foundation for the Kinova Gen3 Lite. The landing page includes 
 - `apps/web/components`: client-side theme provider.
 - `apps/web/components/robot/RobotViewer.tsx`: workspace container and client-only scene loading.
 - `apps/web/components/robot/WorkspaceScene.tsx`: R3F camera, lighting, grid, axes, reference cube and OrbitControls.
+- `apps/web/components/robot/RobotModel.tsx`: loads the official URDF and STL visuals.
 - `apps/web/package.json`: application dependencies and scripts.
 - `Kinova_Gen3_Lite_Web_Control_Roadmap.md`: project specification.
 
@@ -40,13 +41,14 @@ npm run build
 
 Use `npm start` after a successful build to serve the production app locally.
 
-Three.js, React Three Fiber and Drei power the workspace; urdf-loader and Zustand remain unused. Theme support follows the system preference; no theme toggle is implemented in this level.
+Three.js, React Three Fiber and Drei power the workspace; urdf-loader builds the model hierarchy. Zustand remains unused. Theme support follows the system preference; no theme toggle is implemented in this level.
 
 ## Workspace verification
 
 - Drag to orbit, right-drag to pan, scroll to zoom. Focus the canvas and press arrow keys for keyboard panning.
-- World coordinates are right-handed with **Z up**, X red, Y green, Z blue. The grid lies in XY with 1 m spacing. Camera up is explicitly `(0, 0, 1)` to use the same robotics-oriented convention.
-- The temporary 0.4 m cube is centered at the world origin and intersects the ground plane intentionally. It is not a robot substitute.
+- World coordinates are right-handed with **Z up**, X red, Y green, Z blue. The grid lies in XY with 0.1 m spacing. Camera up is explicitly `(0, 0, 1)` to use the same robotics-oriented convention.
+- The official model retains its world-to-base identity transform and meter scale. Its loaded visual bounds are approximately 1.02 m tall in this pose.
+- The status below the viewport confirms all 11 visual meshes are loaded or names the failed asset. See [model provenance and validation](docs/MODEL_VALIDATION.md).
 - Resize the browser: Canvas observes its container and updates renderer size and perspective aspect ratio.
 - Browser checks: orbit and zoom visually verified; panning verified with arrow keys; the right-drag mapping is configured by OrbitControls but not separately exercised by automation. Desktop and 600 × 800 viewport rendering verified; narrow canvas measured 550 × 440 CSS pixels, matching its container.
 - Browser logs contained no WebGL or hydration errors. The installed R3F/Three combination emits a `THREE.Clock` deprecation warning; rendering and interaction still work.

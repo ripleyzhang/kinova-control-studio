@@ -10,19 +10,19 @@ export default function Home() {
         </span>
       </header>
       <section className="flex flex-col justify-center py-10">
-        <p className="mb-6 text-xs font-bold tracking-[0.2em] opacity-60">LEVEL 2 / THE EMPTY UNIVERSE</p>
+        <p className="mb-6 text-xs font-bold tracking-[0.2em] opacity-60">LEVEL 4 / THE AWAKENING</p>
         <h1 className="max-w-3xl text-5xl font-semibold leading-tight tracking-tight sm:text-7xl">
           Kinova Control Studio
         </h1>
         <p className="mt-6 max-w-xl text-lg leading-relaxed opacity-70">
           A browser-based workspace for the Kinova Gen3 Lite.
-          Explore the empty 3D workspace.
+          Explore the official model in the 3D workspace.
         </p>
         <p className="mt-10 text-sm font-medium tracking-wide">No Physics / No Hardware</p>
       </section>
       <RobotViewer />
       <footer className="border-t border-current/15 pt-5 text-xs opacity-60">
-        V1 · Frontend only · No robot model or joint controls loaded.
+        V1 · Frontend only · Static robot preview.
       </footer>
     </main>
   );
