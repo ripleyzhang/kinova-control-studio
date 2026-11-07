@@ -1,9 +1,14 @@
 "use client";
 
+import { useThree } from "@react-three/fiber";
+import { ARM_JOINTS } from "@/lib/robot-config";
+import { useRobotStore } from "@/stores/robotStore";
 import { useEffect, useState } from "react";
 import { Box3, Mesh, type BufferGeometry, type Material } from "three";
 import { STLLoader } from "three/addons/loaders/STLLoader.js";
 import URDFLoader, { type URDFRobot } from "urdf-loader";
+
+import JointHighlight from "./JointHighlight";
 
 const modelUrl = "/robots/gen3-lite/robot.urdf";
 
@@ -19,6 +24,7 @@ async function fetchAsset(url: string, signal: AbortSignal) {
 }
 
 export default function RobotModel({ onStatus }: { onStatus: (status: ModelStatus) => void }) {
+  const invalidate = useThree((state) => state.invalidate);
   const [robot, setRobot] = useState<URDFRobot | null>(null);
 
   useEffect(() => {
@@ -90,5 +96,27 @@ export default function RobotModel({ onStatus }: { onStatus: (status: ModelStatu
     };
   }, [onStatus]);
 
-  return robot ? <primitive object={robot} /> : null;
+  useEffect(() => {
+    if (!robot) return;
+    const apply = (positions: ReturnType<typeof useRobotStore.getState>["positions"],
+      previous?: typeof positions) => {
+      for (const { name } of ARM_JOINTS) {
+        if (positions[name] !== previous?.[name]) robot.setJointValue(name, positions[name]);
+      }
+      invalidate();
+    };
+
+    apply(useRobotStore.getState().positions);
+    return useRobotStore.subscribe((state, previous) => {
+      if (state.positions !== previous.positions) apply(state.positions, previous.positions);
+    });
+  }, [robot, invalidate]);
+
+  if (!robot) return null;
+  return (
+    <>
+      <primitive object={robot} />
+      <JointHighlight robot={robot} />
+    </>
+  );
 }
