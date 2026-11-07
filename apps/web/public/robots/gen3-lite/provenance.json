@@ -1,0 +1,65 @@
+{
+  "repository": "https://github.com/Kinovarobotics/ros2_kortex",
+  "revision": "b2aa46b29ae8fadd5b293c57e3500925c61eb8e8",
+  "entry": "kortex_description/robots/gen3_lite_gen3_lite_2f.xacro",
+  "variant": "gen3_lite / 6dof / gen3_lite_2f / empty prefix / no vision",
+  "xacro_version": "2.1.1",
+  "license": "BSD (see verbatim LICENSE)",
+  "meshes": [
+    {
+      "source": "kortex_description/arms/gen3_lite/6dof/meshes/base_link.STL",
+      "local": "meshes/arms/gen3_lite/6dof/meshes/base_link.STL",
+      "sha256": "84025360b601d1afdec0b65f1fcfc1e1ff12c91db9e8952f38d89f20bd54fb6d"
+    },
+    {
+      "source": "kortex_description/arms/gen3_lite/6dof/meshes/shoulder_link.STL",
+      "local": "meshes/arms/gen3_lite/6dof/meshes/shoulder_link.STL",
+      "sha256": "e01094c1339d3d161796f4aedbb195ac1b3ae713449b28d027276ccd6b7d2564"
+    },
+    {
+      "source": "kortex_description/arms/gen3_lite/6dof/meshes/arm_link.STL",
+      "local": "meshes/arms/gen3_lite/6dof/meshes/arm_link.STL",
+      "sha256": "2daa1e649cd64d19865c13ab977a7b09a560218a25a969f741b41bd1d869c582"
+    },
+    {
+      "source": "kortex_description/arms/gen3_lite/6dof/meshes/forearm_link.STL",
+      "local": "meshes/arms/gen3_lite/6dof/meshes/forearm_link.STL",
+      "sha256": "5365cd2365c42f0394b9bd068677efa5176a380168600a188bb2e30d1e488d8b"
+    },
+    {
+      "source": "kortex_description/arms/gen3_lite/6dof/meshes/lower_wrist_link.STL",
+      "local": "meshes/arms/gen3_lite/6dof/meshes/lower_wrist_link.STL",
+      "sha256": "3d1e64b98c39bec3d7c4008e9a46ff78b03797e0280c2b93de68fe4ebc510dfc"
+    },
+    {
+      "source": "kortex_description/arms/gen3_lite/6dof/meshes/upper_wrist_link.STL",
+      "local": "meshes/arms/gen3_lite/6dof/meshes/upper_wrist_link.STL",
+      "sha256": "a261314019b98d57177517b36ce4ced97e2c7791b99bd062e5ecf9768b6a5060"
+    },
+    {
+      "source": "kortex_description/grippers/gen3_lite_2f/meshes/gripper_base_link.STL",
+      "local": "meshes/grippers/gen3_lite_2f/meshes/gripper_base_link.STL",
+      "sha256": "a2c558cfb3956d4325d4fedf425544b5c3fcf0fce58125207946fa0e3eecddc5"
+    },
+    {
+      "source": "kortex_description/grippers/gen3_lite_2f/meshes/right_finger_prox_link.STL",
+      "local": "meshes/grippers/gen3_lite_2f/meshes/right_finger_prox_link.STL",
+      "sha256": "2b19bfcea81c1985da2c69977bce9966968bb34d45f47b6639b0b7ffdbe55eec"
+    },
+    {
+      "source": "kortex_description/grippers/gen3_lite_2f/meshes/right_finger_dist_link.STL",
+      "local": "meshes/grippers/gen3_lite_2f/meshes/right_finger_dist_link.STL",
+      "sha256": "2f7ce7e9013451924e506056ae81a4b8413441c8afa503e3a3cdfa843e3e7f2a"
+    },
+    {
+      "source": "kortex_description/grippers/gen3_lite_2f/meshes/left_finger_prox_link.STL",
+      "local": "meshes/grippers/gen3_lite_2f/meshes/left_finger_prox_link.STL",
+      "sha256": "82df8dbc59de39f54ab30099d95eb767493a8c2e3f3b37698181379013515148"
+    },
+    {
+      "source": "kortex_description/grippers/gen3_lite_2f/meshes/left_finger_dist_link.STL",
+      "local": "meshes/grippers/gen3_lite_2f/meshes/left_finger_dist_link.STL",
+      "sha256": "681dee5c31fd526c4aa0918dd60947beae5d3fb1568511dfde62a4fca728e7ee"
+    }
+  ]
+}
